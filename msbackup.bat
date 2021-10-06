@@ -38,7 +38,44 @@ IF ERRORLEVEL ==2 GOTO BACKUP
 IF ERRORLEVEL ==1 GOTO HOME
 :BACKUP
 cls
-echo.                                        (Home) (Backup) (Restore) (hElp) (About)
+echo.                                        (Home) [Backup] (Restore) (hElp) (About)
+echo.------------------------------------------------------------------------------------------------------------------------
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.------------------------------------------------------------------------------------------------------------------------
+echo.Press H for help.
+choice /c hbrea /n %1
+IF ERRORLEVEL ==5 GOTO ABOUT
+IF ERRORLEVEL ==4 GOTO HELP
+IF ERRORLEVEL ==3 GOTO RESTORE
+IF ERRORLEVEL ==2 GOTO BACKUP
+IF ERRORLEVEL ==1 GOTO HOME
+:RESTORE
+cls
+echo.                                        (Home) (Backup) [Restore] (hElp) (About)
 echo.------------------------------------------------------------------------------------------------------------------------
 echo.
 echo.
@@ -75,7 +112,7 @@ IF ERRORLEVEL ==2 GOTO BACKUP
 IF ERRORLEVEL ==1 GOTO HOME
 :HELP
 cls
-echo.                                        (Home) (Backup) (Restore) (hElp) (About)
+echo.                                        (Home) (Backup) (Restore) [hElp] (About)
 echo.------------------------------------------------------------------------------------------------------------------------
 echo.
 echo.
@@ -112,11 +149,11 @@ IF ERRORLEVEL ==2 GOTO BACKUP
 IF ERRORLEVEL ==1 GOTO HOME
 :ABOUT
 cls
-echo.                                        (Home) (Backup) (Restore) (hElp) (About)
+echo.                                        (Home) (Backup) (Restore) (hElp) [About]
 echo.------------------------------------------------------------------------------------------------------------------------
 echo.                 (C) Copyright Sunny090628 and sherlocksoftcollection on Github.  All rights reserved.
 echo.
-echo.                                            Support us by ordering premium!
+echo.
 echo.
 echo.   Version Info:
 echo.   MuseScore Backupper v0.1 development nightly build.  Revision no. abcdefg
