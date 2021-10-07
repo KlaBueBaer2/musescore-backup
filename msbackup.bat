@@ -1,6 +1,7 @@
 @echo off
 title MuseScore Backupper v1.0 Developer Nightly Build
 set currentdir=%CD%
+set disk=%cd:~0,2%
 :HOME
 cls
 echo.                                        [Home] (Backup) (Restore) (hElp) (About)
@@ -159,55 +160,11 @@ cd "%folderdir%"
 mkdir Temp7z
 cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
 xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\Temp7z"
-C:
+%disk%
 cd %currentdir%
 cd dependencies
 cd 7zip
 7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
-if exist %backup7z% GOTO :FINISH
-D:
-cd %currentdir%
-cd dependencies
-cd 7zip
-7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
-if exist %backup7z% GOTO :FINISH
-E:
-cd %currentdir%
-cd dependencies
-cd 7zip
-7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
-if exist %backup7z% GOTO :FINISH
-F:
-cd %currentdir%
-cd dependencies
-cd 7zip
-7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
-if exist %backup7z% GOTO :FINISH
-G:
-cd %currentdir%
-cd dependencies
-cd 7zip
-7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
-if exist %backup7z% GOTO :FINISH
-H:
-cd %currentdir%
-cd dependencies
-cd 7zip
-7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
-if exist %backup7z% GOTO :FINISH
-I:
-cd %currentdir%
-cd dependencies
-cd 7zip
-7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
-if exist %backup7z% GOTO :FINISH
-J:
-cd %currentdir%
-cd dependencies
-cd 7zip
-7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
-if exist %backup7z% GOTO :FINISH
-:FINISH
 xcopy %backup7z% "%folderdir%"
 del %backup7z%
 rmdir "%folderdir%\Temp7z" /s /q
