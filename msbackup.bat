@@ -1,4 +1,6 @@
 @echo off
+title MuseScore Backupper v1.0 Developer Nightly Build
+set currentdir=%CD%
 :HOME
 cls
 echo.                                        [Home] (Backup) (Restore) (hElp) (About)
@@ -118,7 +120,7 @@ IF ERRORLEVEL ==2 GOTO BACKUP
 IF ERRORLEVEL ==1 GOTO HOME
 :BACKUPFOLDER
 cls
-echo.
+echo.========================================================================================================================
 echo.Lastly, where do you want to backup to? The contents of the settings folder will be copied into this folder.
 echo.Example directory: C:\myfiles\musescorebackup
 echo.
@@ -128,9 +130,87 @@ echo.
 echo.Configuration complete!
 pause
 cls
+echo.Copying.................................................................................................................
 C:
 cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
 xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%"
+echo.========================================================================================================================
+echo.Finished!
+pause
+GOTO HOME
+:BACKUP7Z
+cls
+echo.========================================================================================================================
+echo.Where do you want to backup to? The backup will be created here.
+echo.Example directory: C:\myfiles\musescorebackup
+echo.
+echo.Backup directory:
+set /p folderdir=
+echo.
+echo.Backup archive name eg. mybackup.7z:
+set /p backup7z=
+echo.
+echo.Configuration complete!
+pause
+cls
+echo.Copying.................................................................................................................
+C:
+cd "%folderdir%"
+mkdir Temp7z
+cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
+xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\Temp7z"
+C:
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+if exist %backup7z% GOTO :FINISH
+D:
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+if exist %backup7z% GOTO :FINISH
+E:
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+if exist %backup7z% GOTO :FINISH
+F:
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+if exist %backup7z% GOTO :FINISH
+G:
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+if exist %backup7z% GOTO :FINISH
+H:
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+if exist %backup7z% GOTO :FINISH
+I:
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+if exist %backup7z% GOTO :FINISH
+J:
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+if exist %backup7z% GOTO :FINISH
+:FINISH
+xcopy %backup7z% "%folderdir%"
+del %backup7z%
+rmdir "%folderdir%\Temp7z" /s /q
 echo.========================================================================================================================
 echo.Finished!
 pause
