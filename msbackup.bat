@@ -205,6 +205,39 @@ echo.===========================================================================
 echo.Finished!
 pause
 GOTO HOME
+:BACKUPZIP
+cls
+echo.========================================================================================================================
+echo.Where do you want to backup to? The backup will be created here.
+echo.Example directory: C:\myfiles\musescorebackup
+echo.
+echo.Backup directory:
+set /p folderdir=
+echo.
+echo.Backup archive name eg. mybackup.zip:
+set /p backupzip=
+echo.
+echo.Configuration complete!
+pause
+cls
+echo.Copying.................................................................................................................
+C:
+cd "%folderdir%"
+mkdir zip
+cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
+xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\zip"
+%disk%
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backupzip% "%folderdir%\zip"
+xcopy %backupzip% "%folderdir%"
+del %backupzip%
+rmdir "%folderdir%\zip" /s /q
+echo.========================================================================================================================
+echo.Finished!
+pause
+GOTO HOME
 :RESTORE
 cls
 echo.                                        (Home) (Backup) [Restore] (hElp) (About)
