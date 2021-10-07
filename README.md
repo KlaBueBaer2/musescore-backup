@@ -15,3 +15,5 @@ for some people to give their thanks. (no features behind paywall 100% gaurentee
 # Current Known Issues
 
 ~~The archived backup fails when programme is installed to drives other than C:, the archiving fails.~~
+
+Incomplete code
