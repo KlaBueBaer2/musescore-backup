@@ -134,7 +134,7 @@ cls
 echo.Copying.................................................................................................................
 C:
 cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
-xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%"
+xcopy /E "%USERPROFILE%\AppData\Local\MuseScore\MuseScore3\" "%folderdir%"
 echo.========================================================================================================================
 echo.Finished!
 pause
@@ -159,7 +159,7 @@ C:
 cd "%folderdir%"
 mkdir 7z
 cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
-xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\7z"
+xcopy /E "%USERPROFILE%\AppData\Local\MuseScore\MuseScore3\" "%folderdir%\7z"
 %disk%
 cd %currentdir%
 cd dependencies
@@ -192,7 +192,7 @@ C:
 cd "%folderdir%"
 mkdir rar
 cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
-xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\rar"
+xcopy /E "%USERPROFILE%\AppData\Local\MuseScore\MuseScore3\" "%folderdir%\rar"
 %disk%
 cd %currentdir%
 cd dependencies
@@ -225,7 +225,7 @@ C:
 cd "%folderdir%"
 mkdir zip
 cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
-xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\zip"
+xcopy /E "%USERPROFILE%\AppData\Local\MuseScore\MuseScore3\" "%folderdir%\zip"
 %disk%
 cd %currentdir%
 cd dependencies
@@ -277,7 +277,77 @@ IF ERRORLEVEL ==3 GOTO RESTORE
 IF ERRORLEVEL ==2 GOTO BACKUP
 IF ERRORLEVEL ==1 GOTO HOME
 :RESTORE2
+cls
+echo.                                        (Home) (Backup) [Restore] (hElp) (About)
+echo.------------------------------------------------------------------------------------------------------------------------
+echo.
+echo.What is your archive stored as?
+echo.Select the corresponding number.
+echo.
+echo.1. As a folder
+echo.2. As a 7z archive
+echo.3. As a rar archive
+echo.4. As a zip archive
+echo.
+echo.
+echo.NOTICE: Archives must be made through the Backup tab.  If not, extract the files and select Folder.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.------------------------------------------------------------------------------------------------------------------------
+echo.Press H for help.
+choice /c hbrea1234 /n %1
+If ERRORLEVEL ==9 GOTO RESTOREZIP
+If ERRORLEVEL ==8 GOTO RESTORERAR
+If ERRORLEVEL ==7 GOTO RESTORE7Z
+If ERRORLEVEL ==6 GOTO RESTOREFOLDER
+IF ERRORLEVEL ==5 GOTO ABOUT
+IF ERRORLEVEL ==4 GOTO HELP
+IF ERRORLEVEL ==3 GOTO RESTORE
+IF ERRORLEVEL ==2 GOTO BACKUP
+IF ERRORLEVEL ==1 GOTO HOME
+:RESTORE7Z
+cls
+echo.========================================================================================================================
+echo.
+echo.Which disk is your backup on?
+echo.Example: C:
+echo.
+echo.Disk:
+set /p backupdisk=
+echo.
+echo.Where is your backup?
+echo.Example backup: C:\myfiles\musescorebackup\backup.7z
+echo.
+echo.Backup directory:
+set /p backupfile=
+echo.
+echo.Configuration complete!
+pause
+cls
+echo.Restoring...............................................................................................................
+%disk%
+cd %currentdir%
+cd dependencies
+cd 7zip
+7z x %backupfile% -o%currentdir%
+xcopy 
 
+echo.========================================================================================================================
+echo.Finished!
+pause
+GOTO HOME
 :HELP
 cls
 echo.                                        (Home) (Backup) (Restore) [hElp] (About)
