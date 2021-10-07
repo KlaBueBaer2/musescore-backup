@@ -243,9 +243,9 @@ cls
 echo.                                        (Home) (Backup) [Restore] (hElp) (About)
 echo.------------------------------------------------------------------------------------------------------------------------
 echo.
+echo.Welcome to the restore wizard.  This will restore your MuseScore settings from your computer.
 echo.
-echo.
-echo.
+echo.Press N to continue...
 echo.
 echo.
 echo.
@@ -269,12 +269,15 @@ echo.
 echo.
 echo.------------------------------------------------------------------------------------------------------------------------
 echo.Press H for help.
-choice /c hbrea /n %1
+choice /c hbrean /n %1
+IF ERRORLEVEL ==5 GOTO RESTORE2
 IF ERRORLEVEL ==5 GOTO ABOUT
 IF ERRORLEVEL ==4 GOTO HELP
 IF ERRORLEVEL ==3 GOTO RESTORE
 IF ERRORLEVEL ==2 GOTO BACKUP
 IF ERRORLEVEL ==1 GOTO HOME
+:RESTORE2
+
 :HELP
 cls
 echo.                                        (Home) (Backup) (Restore) [hElp] (About)
