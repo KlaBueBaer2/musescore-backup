@@ -148,7 +148,7 @@ echo.
 echo.Backup directory:
 set /p folderdir=
 echo.
-echo.Backup archive name eg. mybackup.7z:
+echo.Backup archive name eg. mybackup.rar:
 set /p backup7z=
 echo.
 echo.Configuration complete!
@@ -157,17 +157,50 @@ cls
 echo.Copying.................................................................................................................
 C:
 cd "%folderdir%"
-mkdir Temp7z
+mkdir 7z
 cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
-xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\Temp7z"
+xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\7z"
 %disk%
 cd %currentdir%
 cd dependencies
 cd 7zip
-7zG.exe a -t7z %backup7z% "%folderdir%\Temp7z"
+7zG.exe a -t7z %backup7z% "%folderdir%\7z"
 xcopy %backup7z% "%folderdir%"
 del %backup7z%
-rmdir "%folderdir%\Temp7z" /s /q
+rmdir "%folderdir%\7z" /s /q
+echo.========================================================================================================================
+echo.Finished!
+pause
+GOTO HOME
+:BACKUPRAR
+cls
+echo.========================================================================================================================
+echo.Where do you want to backup to? The backup will be created here.
+echo.Example directory: C:\myfiles\musescorebackup
+echo.
+echo.Backup directory:
+set /p folderdir=
+echo.
+echo.Backup archive name eg. mybackup.rar:
+set /p backuprar=
+echo.
+echo.Configuration complete!
+pause
+cls
+echo.Copying.................................................................................................................
+C:
+cd "%folderdir%"
+mkdir rar
+cd %USERPROFILE%\AppData\Local\MuseScore\MuseScore3
+xcopy /E %USERPROFILE%\AppData\Local\MuseScore\MuseScore3 "%folderdir%\rar"
+%disk%
+cd %currentdir%
+cd dependencies
+cd 7zip
+7zG.exe a -t7z %backuprar% "%folderdir%\rar"
+xcopy %backuprar% "%folderdir%"
+del %backuprar%
+rmdir "%folderdir%\rar" /s /q
 echo.========================================================================================================================
 echo.Finished!
 pause
