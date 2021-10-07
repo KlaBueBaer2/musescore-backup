@@ -11,3 +11,7 @@ Currently, there is only a development nightly version avaliable.
 
 This is licenced under the GNU Public Licence 3.0.   Everything is open source and free.  However, later in the development process, I will be adding a premium just
 for some people to give their thanks. (no features behind paywall 100% gaurenteed)
+
+# Current Known Issues
+
+The archived backup fails when programme is installed to drives other than C:, the archiving fails.
