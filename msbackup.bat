@@ -32,7 +32,7 @@
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
-title MuseScore Backupper v1.0 Beta
+title MuseScore Backupper v1.0.0.0 Beta 2
 set currentdir=%CD%
 set disk=%cd:~0,2%
 :HOME
@@ -103,7 +103,7 @@ echo.
 echo.
 echo.
 echo.------------------------------------------------------------------------------------------------------------------------
-echo.Press H for help.
+echo.Press E for help.
 choice /c hbrean /n %1
 If ERRORLEVEL ==6 GOTO BACKUP2
 IF ERRORLEVEL ==5 GOTO ABOUT
@@ -141,7 +141,7 @@ echo.
 echo.
 echo.
 echo.------------------------------------------------------------------------------------------------------------------------
-echo.Press H for help.
+echo.Press E for help.
 choice /c hbrea1234 /n %1
 If ERRORLEVEL ==9 GOTO BACKUPZIP
 If ERRORLEVEL ==8 GOTO BACKUPRAR
@@ -301,7 +301,7 @@ echo.
 echo.
 echo.
 echo.------------------------------------------------------------------------------------------------------------------------
-echo.Press H for help.
+echo.Press E for help.
 choice /c hbrean /n %1
 IF ERRORLEVEL ==5 GOTO RESTORE2
 IF ERRORLEVEL ==5 GOTO ABOUT
@@ -339,7 +339,7 @@ echo.
 echo.
 echo.
 echo.------------------------------------------------------------------------------------------------------------------------
-echo.Press H for help.
+echo.Press E for help.
 choice /c hbrea1 /n %1
 If ERRORLEVEL ==6 GOTO RESTOREFOLDER
 IF ERRORLEVEL ==5 GOTO ABOUT
@@ -406,7 +406,7 @@ echo.
 echo.
 echo.
 echo.------------------------------------------------------------------------------------------------------------------------
-echo.Press H for help.
+echo.Press E for help.
 choice /c hbrea /n %1
 IF ERRORLEVEL ==5 GOTO ABOUT
 IF ERRORLEVEL ==4 GOTO HELP
@@ -422,7 +422,7 @@ echo.
 echo.
 echo.
 echo.   Version Info:
-echo.   MuseScore Backupper v1.0 beta.
+echo.   MuseScore Backupper v1.0.0.0 beta 2.
 echo.
 echo.
 echo.
@@ -442,7 +442,7 @@ echo.
 echo.
 echo.
 echo.------------------------------------------------------------------------------------------------------------------------
-echo.Press H for help.
+echo.Press E for help.
 choice /c hbrea /n %1
 IF ERRORLEVEL ==5 GOTO ABOUT
 IF ERRORLEVEL ==4 GOTO HELP
@@ -479,7 +479,7 @@ echo.
 echo.
 echo.
 echo.------------------------------------------------------------------------------------------------------------------------
-echo.Press H for help.
+echo.Press ES for help.
 choice /c hbrea /n %1
 IF ERRORLEVEL ==5 GOTO ABOUT
 IF ERRORLEVEL ==4 GOTO HELP
