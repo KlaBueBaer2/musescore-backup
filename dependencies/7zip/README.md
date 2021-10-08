@@ -1,3 +1,3 @@
 # 7zip
 
-Currently using version 21.02 alpha.
+Currently using version 21.03 beta.
